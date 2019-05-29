@@ -1,0 +1,14 @@
+private void allBooks()
+	{
+		CategoryDetails categoryDetails=new CategoryDetails("sed");
+		BookDetails book=new BookDetails(23563,"The Late Nights","Harry",78.90f,"doll","the n",categoryDetails);
+		entityManager.persist(categoryDetails);
+	entityManager.persist(book);
+	}
+	
+	@Override
+	public List<BookDetails> listBooks() {
+	TypedQuery<BookDetails> query=entityManager.createQuery("select books from BookDetails books",BookDetails.class);
+	List<BookDetails> books=query.getResultList();
+		return books;
+	}
